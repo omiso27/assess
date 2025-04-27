@@ -20,21 +20,46 @@ assessmentButton.addEventListener(
     // 診断結果表示エリアの作成
     // 結果の中身を空にする。→連続して診断結果が出てしまわないようにする
     resultDivision.innerText = '';
-    // h3タグを作成する
-    const heading = document.createElement('h3');
-    // h3タグの中身の文章を設定する
-    heading.innerText = '診断結果';
-    // div小要素として追加
-    resultDivision.appendChild(heading);
+    // // h3タグを作成する
+    // const heading = document.createElement('h3');
+    // // h3タグの中身の文章を設定する
+    // heading.innerText = '診断結果';
+    // // div小要素として追加
+    // resultDivision.appendChild(heading);
 
-    // pタグを作成する
+    // // pタグを作成する
+    // const paragraph = document.createElement('p');
+    // // 診断結果の文章を作る
+    // const result = assessment(userName);
+    // // pタグの中身の文章を設定する
+    // paragraph.innerText = result;
+    // // divタグの子要素として表示する
+    // resultDivision.appendChild(paragraph);
+
+    // headerDivision の作成
+    const headerDivision = document.createElement('div');
+    headerDivision.setAttribute('class', 'card-header text-bg-primary');
+    headerDivision.innerText = '診断結果';
+
+    // JSで作成したHTMLのタグに属性を追加するときは、setAttributeを使うことができる。
+    // setAttribute('属性名' , '属性の値');
+
+    // bodyDivision の作成
+    const bodyDivision =document.createElement('div');
+    bodyDivision.setAttribute('class', 'card-body');
+
     const paragraph = document.createElement('p');
-    // 診断結果の文章を作る
+    paragraph.setAttribute('class', 'card-text');
     const result = assessment(userName);
-    // pタグの中身の文章を設定する
     paragraph.innerText = result;
-    // divタグの子要素として表示する
-    resultDivision.appendChild(paragraph);
+    bodyDivision.appendChild(paragraph);
+
+    // resultDivision に BootStrap のスタイルを適用する
+    resultDivision.setAttribute('class', 'card');
+
+    // headerDivisonとbodyDivisonとresultDivisonに差し込む
+    resultDivision.appendChild(headerDivision);
+    resultDivision.appendChild(bodyDivision);
 
     // ツイートエリアの作成　プログラムからHTMLのタグを作成
     // ツイートのdivタグの中身を空にしてる。
